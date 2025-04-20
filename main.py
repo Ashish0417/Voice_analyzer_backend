@@ -29,7 +29,7 @@ async def analyze_audio(file: UploadFile = File(...)):
     result_age = predict_age(features)
 
     return JSONResponse(content={
-        "gender": result["gender"],
+        "gender": result["probability"],
         "age": result_age["predicted_age_group"],
         "certainty": result['confidence']
     })
